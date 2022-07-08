@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="../css/ttt_css.css" type="text/css"/>
+</head>
+<html>
+    <body>
+        <div id="container">
+
+            <div id="welcome">
+
+                <div id="title">
+                    <h2>Tic-Tac-Toe</h2>
+                </div>
+                
+                <div id="players">
+                    Player #1 (<span class="XandO">X</span>):
+                    <input type="text" name="name" maxlength="20" id="p1name" />
+                    <span id="playerSpacing"></span>
+                    Player #2 (<span class="XandO">O</span>):
+                    <input type="text" name="name" maxlength="20" id="p2name" />
+                    </br>
+                    <button type="button" id="startbutton">Start</button>
+                    <div class="toggle" id="warning">Both player names are required for the game to start</div>
+                </div>
+            </div>
+
+            <div class="toggle" id="game">
+                <div id="turn">Who's turn:<span id="turnName"></span></div>
+                
+                <div class="gameGrid">
+                    <table id="board">
+                        <tr>
+                            <td class="cellTitle" id="ct0"></td>
+                            <td class="cellTitle" id="ct1">1</td>
+                            <td class="cellTitle" id="ct2">2</td>
+                            <td class="cellTitle" id="ct3">3</td>
+                        </tr>
+                        <tr>
+                            <td class="cellTitle" id="ct4">1</td>
+                            <td class="cell" id="c1"></td>
+                            <td class="cell" id="c2"></td>
+                            <td class="cell" id="c3"></td>
+                        </tr>
+                        <tr>
+                            <td class="cellTitle" id="ct5">2</td>
+                            <td class="cell" id="c4"></td>
+                            <td class="cell" id="c5"></td>
+                            <td class="cell" id="c6"></td>
+                        </tr>
+                        <tr>
+                            <td class="cellTitle" id="ct6">3</td>
+                            <td class="cell" id="c7"></td>
+                            <td class="cell" id="c8"></td>
+                            <td class="cell" id="c9"></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="gameGrid" id="commentaryBox">
+                    <div>Commentary:</div>
+                    <div id="comments"></div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <script src="../js/ttt_js.js"></script>
+    </body>
+</html>
