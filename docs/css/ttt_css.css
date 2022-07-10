@@ -1,0 +1,148 @@
+body {
+    background-color: rgb(129, 129, 129);
+}
+
+#container {
+    margin: 15px;
+    padding: 20px;
+    max-height: auto;
+    border: 4px solid black;
+    background-color: lightblue;
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+#welcome {
+    height: 185px;
+    border: 3px solid black;
+    background-color: lavenderblush;
+}
+
+#title {
+    color: rgb(153, 0, 255);
+    font-size: 18px;
+    font-family: 'Courier New', monospace;
+}
+
+#players {
+    font-size: 16px;
+}
+
+#playerSpacing {
+    padding: 50px;
+}
+
+#players input {
+    color: red;
+    width: 200px;
+    font-size: 16px;
+    border: 2px solid black;
+}
+
+.XandO {
+    padding: 2px;
+    color: rgb(0, 119, 255);
+    font-family: 'Brush Script MT', cursive;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#startbutton {
+    padding: 5px 25px 5px 25px;
+    margin-top: 20px;
+    background-color: lightgreen;
+    border: none;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#startbutton:hover {
+    background-color: lightskyblue;
+    cursor: pointer;
+}
+
+#warning {
+    margin-top: 5px;
+    color: red;
+    font-size: 16px;
+}
+
+#game {
+    font-size: 16px;
+}
+
+.gameGrid {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    height: 400px;
+}
+
+#turn {
+    text-align: left;
+    padding-left: 30%;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#turnName {
+    margin-left: 10px;
+    color: red;
+}
+
+#board {
+    margin-top: 10px;
+}
+
+#commentaryBox {
+    padding: 5px 10px 10px 10px;
+    margin-left: 40px;
+    border: 2px solid black;
+    background-color: lightcyan;
+    height: 360px;
+    width: 250px;
+}
+
+#comments {
+    margin-top: 7px;
+    height: 335px;
+    font-size: 14px;
+    text-align: left;
+    color: red;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.cellTitle {
+    padding: 15px 25px 15px 25px;
+}
+
+.cell {
+    height: 100px;
+    width: 100px;
+    background-color: lightcoral;
+    font-size: 0px;
+}
+
+.cellClicked {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+}
+
+.cell:hover {
+    background-color: rgb(240, 96, 96);
+    cursor: pointer;
+}
+
+.cellWinner {
+    background-color: rgb(226, 77, 77);
+}
+
+.toggle {
+    display: none;
+}
