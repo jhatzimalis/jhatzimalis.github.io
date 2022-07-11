@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(129, 129, 129);
+}
+
+#container {
+    margin: 15px;
+    padding: 20px;
+    border: 4px solid rgb(0, 0, 0);
+    background-color: blanchedalmond;
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#gamegrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game {
+    margin: 15px;
+    color: brown;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.gameimage {
+    width: 300px;
+    height: 300px;
+    background-size: contain;
+    /* background-repeat: no-repeat; */
+    /* margin: 15px; */
+    display: block;
+    border: 2px solid black;
+    background-color: white;
+    box-shadow: 8px 8px 5px rgb(98, 98, 98);
+}
+
+#tictactoe {
+    background-image: url("../img/ttt.png");
+
+}
+
+#dice {
+    background-image: url("../img/dice.jpeg");
+}
+
+#newyear {
+    background-image: url("../img/newyear.PNG");
+}
