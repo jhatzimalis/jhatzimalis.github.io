@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Lookup</title>
+    <link rel="stylesheet" href="../css/iposint_css.css" type="text/css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>IP Lookup</h1>
+        <input type="text" id="ipInput" placeholder="Enter IP Address">
+        
+        <!-- Malicious Reports Section -->
+        <div class="subheading">Malicious Reports</div>
+        <div class="button-row">
+            <button class="abuseipdb" title="Check AbuseIPDB" onclick="openAbuseIPDB()">AbuseIPDB</button>
+            <button class="ipqualityscore" title="Check IPQualityScore" onclick="openIPQualityScore()">IPQualityScore</button>
+            <button class="virustotal" title="Check VirusTotal" onclick="openVirusTotal()">VirusTotal</button>
+            <button class="open-all-malicious" title="Open All" onclick="openAllMalicious()">Open All</button>
+        </div>
+        
+        <!-- Whois Section -->
+        <div class="subheading">Whois</div>
+        <div class="button-row">
+            <button class="whois" title="Check Whois" onclick="openWhois()">Whois</button>
+            <button class="open-all-whois" title="Open All" onclick="openAllWhois()">Open All</button>
+        </div>
+    </div>
+    <script src="../js/iposint_js.js"></script>
+</body>
+</html>

@@ -47,5 +47,11 @@ body {
 }
 
 #newyear {
-    background-image: url("../img/newyear.PNG");
+    /* background-image: url("../img/newyear.PNG"); */
+    background-image: url("../img/newyear2.jpg");
+
+}
+
+#iposint {
+    background-image: url("../img/iposint.jpg");
 }

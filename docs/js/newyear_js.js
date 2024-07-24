@@ -1,7 +1,8 @@
 function time_remaining(){
     // fetch todays date and initialize a target date
     var today_date = new Date();
-    var target_date = new Date("Dec 31, 2022 23:59:59");
+    // var target_date = new Date("Dec 31, 2024 23:59:59");
+    var target_date = new Date("Jan 1, 2025 00:00:01");
     // calculate millisecond difference between dates
     var diff = target_date.getTime() - today_date.getTime();
 

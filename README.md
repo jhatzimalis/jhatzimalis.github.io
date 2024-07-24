@@ -1,6 +1,7 @@
 # Link -> [jhatzimalis.github.io](https://jhatzimalis.github.io/) :video_game::do_not_litter::construction:
 GitHub page created with HTML, CSS, and JS.
 ### Features
+- OSINT Tools! :satellite::mag:
 - Tic-Tac-Toe :x::o:
 - Dice Roll :game_die:
 - New Year Countdown :date:
