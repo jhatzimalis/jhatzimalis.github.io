@@ -12,23 +12,23 @@
 
 ### 🛡️ Cybersecurity
 
-* **[TotalOSINT](https://jhatzimalis.github.io/TotalOSINT)**  
+* **TotalOSINT**  
   Comprehensive open-source intelligence suite and toolkit for SOC, TI, IR, and DFIR teams.  
   🔗 [Launch TotalOSINT](https://jhatzimalis.github.io/TotalOSINT)
 
-* **[LazyOSINT](https://jhatzimalis.github.io/LazyOSINT)** *(Archived)*  
+* **LazyOSINT** *(Archived)*  
   Previous iteration of the OSINT toolkit. Maintained for archival purposes.  
-  🔗 [View LazyOSINT](https://jhatzimalis.github.io/LazyOSINT)
+  🔗 [Launch LazyOSINT](https://jhatzimalis.github.io/LazyOSINT)
 
 ### 🎮 Games
 
-* **[Tic-Tac-Toe](https://jhatzimalis.github.io/TicTacToe)**  
+* **Tic-Tac-Toe**  
   A clean, interactive, and responsive implementation of the classic game.  
   🔗 [Play Tic-Tac-Toe](https://jhatzimalis.github.io/TicTacToe)
 
 ### 🛠️ Miscellaneous
 
-* **[PokerManager](https://jhatzimalis.github.io/PokerManager)**  
+* **PokerManager**  
   A utility application designed to manage and track local poker games and finance.  
   🔗 [Launch PokerManager](https://jhatzimalis.github.io/PokerManager)
 
