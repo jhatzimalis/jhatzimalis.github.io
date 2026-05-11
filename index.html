@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard</title>
+    <style>
+        /* Base & Typography */
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --border-color: #2d2d2d;
+            --border-hover: #3b82f6;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --flagship-bg: #171e29;
+            --muted-bg: #121212;
+            --muted-border: #222222;
+            --muted-text: #666666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Slim Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .github-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            outline: none;
+        }
+
+        .github-link:hover, .github-link:focus-visible {
+            color: var(--text-primary);
+        }
+
+        /* Layout & Grid */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            letter-spacing: -0.5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Modular Cards */
+        .card {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Unified "Selected" State for Hover AND Keyboard Focus */
+        .card:hover, .card:focus-visible {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.15);
+            border-color: var(--border-hover);
+        }
+
+        .card:hover .card-link-text, .card:focus-visible .card-link-text {
+            color: var(--border-hover);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Tags System */
+        .card-tags {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            background-color: var(--border-color);
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-link-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+            transition: color 0.2s ease;
+        }
+
+        /* Specific Card Styles */
+        .card.flagship {
+            background-color: var(--flagship-bg);
+        }
+
+        .card.flagship .tag {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+        }
+
+        .card.muted {
+            background-color: var(--muted-bg);
+            border-color: var(--muted-border);
+            color: var(--muted-text);
+        }
+
+        .card.muted .card-desc,
+        .card.muted .card-link-text,
+        .card.muted .tag {
+            color: var(--muted-text);
+        }
+
+        .card.muted:hover, .card.muted:focus-visible {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+        
+        .card.muted:hover .card-desc, .card.muted:focus-visible .card-desc {
+            color: var(--text-secondary);
+        }
+
+        .legacy-badge {
+            font-size: 0.7rem;
+            background-color: #2a2a2a;
+            color: #888;
+            padding: 0.15rem 0.5rem;
+            border-radius: 99px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title">Project Dashboard</div>
+        <a href="https://github.com/jhatzimalis" class="github-link" target="_blank" rel="noopener noreferrer">
+            GitHub Profile
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </a>
+    </header>
+
+    <main>
+        <!-- CATEGORY: CYBERSECURITY -->
+        <section class="category-section">
+            <h2 class="category-title">Cybersecurity</h2>
+            <div class="grid-container">
+                
+                <a href="https://jhatzimalis.github.io/TotalOSINT" class="card flagship" id="total-osint">
+                    <div class="card-title">TotalOSINT</div>
+                    <div class="card-tags">
+                        <span class="tag">OSINT</span>
+                        <span class="tag">Bulk</span>
+                        <span class="tag">Extract</span>
+                        <span class="tag">Triage</span>
+                        <span class="tag">Report</span>
+                    </div>
+                    <div class="card-desc">Comprehensive open-source intelligence suite and toolkit for SOC, TI, IR, and DFIR teams.</div>
+                    <div class="card-link-text">Launch Tool &rarr;</div>
+                </a>
+
+                <a href="https://jhatzimalis.github.io/LazyOSINT" class="card muted">
+                    <div class="card-title">LazyOSINT <span class="legacy-badge">Legacy Version</span></div>
+                    <div class="card-tags">
+                        <span class="tag">Archived</span>
+                    </div>
+                    <div class="card-desc">Previous iteration of the OSINT toolkit. Maintained for archival purposes.</div>
+                    <div class="card-link-text">Launch Tool &rarr;</div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CATEGORY: GAMES -->
+        <section class="category-section">
+            <h2 class="category-title">Games</h2>
+            <div class="grid-container">
+                
+                <a href="https://jhatzimalis.github.io/TicTacToe" class="card">
+                    <div class="card-title">Tic-Tac-Toe</div>
+                    <div class="card-tags">
+                        <span class="tag">Two-Player</span>
+                        <span class="tag">Co-op</span>
+                        <span class="tag">Couch</span>
+                        <span class="tag">Local</span>
+                    </div>
+                    <div class="card-desc">A clean, interactive, and responsive implementation of the classic game.</div>
+                    <div class="card-link-text">Play Game &rarr;</div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CATEGORY: MISCELLANEOUS -->
+        <section class="category-section">
+            <h2 class="category-title">Miscellaneous</h2>
+            <div class="grid-container">
+                
+                <a href="https://jhatzimalis.github.io/PokerManager" class="card">
+                    <div class="card-title">PokerManager</div>
+                    <div class="card-tags">
+                        <span class="tag">Utility</span>
+                        <span class="tag">Tracker</span>
+                        <span class="tag">Finance</span>
+                    </div>
+                    <div class="card-desc">A utility application designed to manage and track local poker games.</div>
+                    <div class="card-link-text">Launch App &rarr;</div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Endless Hybrid Keyboard Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalOsint = document.getElementById('total-osint');
+            if(totalOsint) {
+                totalOsint.focus();
+            }
+
+            const cards = Array.from(document.querySelectorAll('.card'));
+            
+            document.addEventListener('keydown', (e) => {
+                const keys =['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+                if (!keys.includes(e.key)) return;
+
+                const currentElement = document.activeElement;
+                if (!cards.includes(currentElement)) return;
+
+                e.preventDefault(); // Prevents default page scroll
+
+                const currentIndex = cards.indexOf(currentElement);
+                const currentRect = currentElement.getBoundingClientRect();
+
+                // 1. ENDLESS LEFT & RIGHT (Sequential Array Navigation for strict consistency)
+                if (e.key === 'ArrowRight') {
+                    cards[(currentIndex + 1) % cards.length].focus();
+                    return;
+                }
+                if (e.key === 'ArrowLeft') {
+                    cards[(currentIndex - 1 + cards.length) % cards.length].focus();
+                    return;
+                }
+
+                // 2. ENDLESS UP & DOWN (Visual Spatial Navigation to stay in same column)
+                let candidates =[];
+                
+                if (e.key === 'ArrowDown') {
+                    candidates = cards.filter(c => c.getBoundingClientRect().top > currentRect.top + 10);
+                    if (candidates.length === 0) {
+                        // Loop to Top
+                        candidates = cards.filter(c => c.getBoundingClientRect().top < currentRect.top - 10);
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    candidates = cards.filter(c => c.getBoundingClientRect().top < currentRect.top - 10);
+                    if (candidates.length === 0) {
+                        // Loop to Bottom
+                        candidates = cards.filter(c => c.getBoundingClientRect().top > currentRect.top + 10);
+                    }
+                }
+
+                if (candidates.length > 0) {
+                    candidates.sort((a, b) => {
+                        const aRect = a.getBoundingClientRect();
+                        const bRect = b.getBoundingClientRect();
+                        
+                        const aDx = Math.abs(aRect.left - currentRect.left);
+                        const bDx = Math.abs(bRect.left - currentRect.left);
+                        
+                        // Strictly prioritize staying in the same visual column (50px tolerance)
+                        if (Math.abs(aDx - bDx) > 50) {
+                            return aDx - bDx; 
+                        }
+                        
+                        // If in the same column, pick the closest one vertically based on direction
+                        if (e.key === 'ArrowDown') {
+                            return aRect.top - bRect.top; // Pick the highest item (closest below, or very top if wrapped)
+                        } else {
+                            return bRect.top - aRect.top; // Pick the lowest item (closest above, or very bottom if wrapped)
+                        }
+                    });
+                    
+                    candidates[0].focus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
