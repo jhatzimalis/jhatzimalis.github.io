@@ -26,6 +26,10 @@
   A clean, interactive, and responsive implementation of the classic game.  
   🔗 [Play Tic-Tac-Toe](https://jhatzimalis.github.io/TicTacToe)
 
+* **Solitaire**  
+A premium, customizable, and mobile-friendly version of the Klondike Solitaire game.  
+🔗 [Play Solitaire](https://jhatzimalis.github.io/solitaire)
+
 ### 🛠️ Miscellaneous
 
 * **PokerManager**  
