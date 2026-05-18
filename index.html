@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Dashboard</title>
     <style>
-        /* Base & Typography */
         :root {
             --bg-color: #121212;
             --surface-color: #1e1e1e;
@@ -33,7 +32,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Slim Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -67,7 +65,6 @@
             color: var(--text-primary);
         }
 
-        /* Layout & Grid */
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -99,7 +96,6 @@
             }
         }
 
-        /* Modular Cards */
         .card {
             display: flex;
             flex-direction: column;
@@ -114,7 +110,6 @@
             outline: none;
         }
 
-        /* Unified "Selected" State for Hover AND Keyboard Focus */
         .card:hover, .card:focus-visible {
             transform: translateY(-4px);
             box-shadow: 0 8px 16px rgba(59, 130, 246, 0.15);
@@ -135,7 +130,6 @@
             flex-wrap: wrap;
         }
 
-        /* Tags System */
         .card-tags {
             display: flex;
             gap: 0.4rem;
@@ -170,7 +164,6 @@
             transition: color 0.2s ease;
         }
 
-        /* Specific Card Styles */
         .card.flagship {
             background-color: var(--flagship-bg);
         }
@@ -272,6 +265,18 @@
                     <div class="card-link-text">Play Game &rarr;</div>
                 </a>
 
+                <a href="https://jhatzimalis.github.io/solitaire" class="card">
+                    <div class="card-title">Solitaire</div>
+                    <div class="card-tags">
+                        <span class="tag">Card-game</span>
+                        <span class="tag">Race</span>
+                        <span class="tag">Mobile-friendly</span>
+                        <span class="tag">Local</span>
+                    </div>
+                    <div class="card-desc">A premium, customizable, and mobile-friendly version of the Klondike Solitaire game.</div>
+                    <div class="card-link-text">Play Game &rarr;</div>
+                </a>
+
             </div>
         </section>
 
@@ -295,7 +300,6 @@
         </section>
     </main>
 
-    <!-- Endless Hybrid Keyboard Navigation -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const totalOsint = document.getElementById('total-osint');
@@ -312,12 +316,11 @@
                 const currentElement = document.activeElement;
                 if (!cards.includes(currentElement)) return;
 
-                e.preventDefault(); // Prevents default page scroll
+                e.preventDefault();
 
                 const currentIndex = cards.indexOf(currentElement);
                 const currentRect = currentElement.getBoundingClientRect();
 
-                // 1. ENDLESS LEFT & RIGHT (Sequential Array Navigation for strict consistency)
                 if (e.key === 'ArrowRight') {
                     cards[(currentIndex + 1) % cards.length].focus();
                     return;
@@ -327,19 +330,16 @@
                     return;
                 }
 
-                // 2. ENDLESS UP & DOWN (Visual Spatial Navigation to stay in same column)
                 let candidates =[];
                 
                 if (e.key === 'ArrowDown') {
                     candidates = cards.filter(c => c.getBoundingClientRect().top > currentRect.top + 10);
                     if (candidates.length === 0) {
-                        // Loop to Top
                         candidates = cards.filter(c => c.getBoundingClientRect().top < currentRect.top - 10);
                     }
                 } else if (e.key === 'ArrowUp') {
                     candidates = cards.filter(c => c.getBoundingClientRect().top < currentRect.top - 10);
                     if (candidates.length === 0) {
-                        // Loop to Bottom
                         candidates = cards.filter(c => c.getBoundingClientRect().top > currentRect.top + 10);
                     }
                 }
@@ -352,16 +352,14 @@
                         const aDx = Math.abs(aRect.left - currentRect.left);
                         const bDx = Math.abs(bRect.left - currentRect.left);
                         
-                        // Strictly prioritize staying in the same visual column (50px tolerance)
                         if (Math.abs(aDx - bDx) > 50) {
                             return aDx - bDx; 
                         }
                         
-                        // If in the same column, pick the closest one vertically based on direction
                         if (e.key === 'ArrowDown') {
-                            return aRect.top - bRect.top; // Pick the highest item (closest below, or very top if wrapped)
+                            return aRect.top - bRect.top;
                         } else {
-                            return bRect.top - aRect.top; // Pick the lowest item (closest above, or very bottom if wrapped)
+                            return bRect.top - aRect.top;
                         }
                     });
                     
